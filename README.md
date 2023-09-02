@@ -1,2 +1,4 @@
-Based on ACUFixes with PluginLoader v0.8.0. It's an unreleased version that corresponds to somewhere around this commit from 2023-08-31:
-    https://github.com/NameTaken3125/ACUFixes/commit/1c8bbfd2865c4e28bb820df88bcb643179b82059
+# Halzoid98CPP
+An attempt to translate Halzoid98's [Physics Patch and Other Improvements](https://www.nexusmods.com/assassinscreedunity/mods/125)
+and colorset editor from [Halzoid's Outfit Manager](https://www.nexusmods.com/assassinscreedunity/mods/126)
+into C++ to avoid the process of .forge files repacking.

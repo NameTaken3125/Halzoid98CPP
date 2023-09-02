@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DearImGui", "CommonLibACU\D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{F488EDCA-7311-4B19-8F18-24B9961336D4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Halzoid98CPP", "Halzoid98CPP\Halzoid98CPP.vcxproj", "{2BA29A3B-AFAC-425F-BD22-C5884F694ED1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -63,6 +65,14 @@ Global
 		{A7A4F65C-61C0-42DA-A457-2558090657A3}.Release|x64.Build.0 = Release|x64
 		{A7A4F65C-61C0-42DA-A457-2558090657A3}.Release|x86.ActiveCfg = Release|Win32
 		{A7A4F65C-61C0-42DA-A457-2558090657A3}.Release|x86.Build.0 = Release|Win32
+		{2BA29A3B-AFAC-425F-BD22-C5884F694ED1}.Debug|x64.ActiveCfg = Debug|x64
+		{2BA29A3B-AFAC-425F-BD22-C5884F694ED1}.Debug|x64.Build.0 = Debug|x64
+		{2BA29A3B-AFAC-425F-BD22-C5884F694ED1}.Debug|x86.ActiveCfg = Debug|Win32
+		{2BA29A3B-AFAC-425F-BD22-C5884F694ED1}.Debug|x86.Build.0 = Debug|Win32
+		{2BA29A3B-AFAC-425F-BD22-C5884F694ED1}.Release|x64.ActiveCfg = Release|x64
+		{2BA29A3B-AFAC-425F-BD22-C5884F694ED1}.Release|x64.Build.0 = Release|x64
+		{2BA29A3B-AFAC-425F-BD22-C5884F694ED1}.Release|x86.ActiveCfg = Release|Win32
+		{2BA29A3B-AFAC-425F-BD22-C5884F694ED1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

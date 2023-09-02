@@ -214,7 +214,9 @@ void LoadPresetsFromFile(BuildTable& colorsetsBuildTable)
 }
 void SavePresetsToFile(BuildTable& colorsetsBuildTable)
 {
-    std::ofstream outfile(GetColorPresetsFilepath());
+    fs::path savedPresetsFilepath = GetColorPresetsFilepath();
+    fs::create_directories(savedPresetsFilepath.parent_path());
+    std::ofstream outfile(savedPresetsFilepath);
     JSON presetsAsJSON = AllColorsToJSON(colorsetsBuildTable);
     outfile << presetsAsJSON;
 }

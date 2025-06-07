@@ -23,16 +23,16 @@ void DoSomethingWithTheSkeletonComponent(Entity& player)
         return;
     }
     uint64 baseSkeletonHandle_mb = 0x6A522DA4D; // Game Bootstrap Settings/ACU_BaseSkeleton_Male.Skeleton
-    if (skeletonCpnt->shared_BaseSkeletonMale->handle != baseSkeletonHandle_mb)
+    if (skeletonCpnt->MainSkeleton->handle != baseSkeletonHandle_mb)
     {
         return;
     }
-    Skeleton* baseSkeleton = skeletonCpnt->shared_BaseSkeletonMale->GetPtr();
+    Skeleton* baseSkeleton = skeletonCpnt->MainSkeleton->GetPtr();
     if (!baseSkeleton)
     {
         return;
     }
-    Bone* faceBone_mb = baseSkeleton->bones[61]; // Seems to be the highest one in this skeleton
+    Bone* faceBone_mb = baseSkeleton->Bones[61]; // Seems to be the highest one in this skeleton
     if (!faceBone_mb)
     {
         return;

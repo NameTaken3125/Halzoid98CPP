@@ -2,6 +2,8 @@
 
 #include "ACU/ACUGetSingletons.h"
 #include "ACU/ACUPlayerCameraComponent.h"
+#include "ACU/SkeletonComponent.h"
+#include "ACU/AtomAnimComponent.h"
 #include "ACU/Entity.h"
 #include "ACU/BhvAssassin.h"
 #include "ACU/World.h"
@@ -49,12 +51,29 @@ namespace ACU {
         */
         return *(uint64*)0x145136FD0;
     }
-    IDXGISwapchain* GetSwapchain()
+    IDXGISwapChain* GetSwapchain()
     {
         HasSwapchain* hsc = HasSwapchain::GetSingleton();
         if (!hsc) return nullptr;
         if (!hsc->toSwapchain) return nullptr;
         return hsc->toSwapchain->swapchain;
+    }
+
+    SkeletonComponent* GetPlayerCpnt_SkeletonComponent()
+    {
+        Entity* player = ACU::GetPlayer();
+        if (!player) { return nullptr; }
+        constexpr uint64 vtbl_SkeletonComponent = 0x142E76630;
+        SkeletonComponent* skeletonCpnt = static_cast<SkeletonComponent*>(player->FindComponentByVTBL(vtbl_SkeletonComponent));
+        return skeletonCpnt;
+    }
+    AtomAnimComponent* GetPlayerCpnt_AtomAnimComponent()
+    {
+        Entity* player = ACU::GetPlayer();
+        if (!player) { return nullptr; }
+        constexpr uint64 vtbl_AtomAnimComponent = 0x142E7F780;
+        AtomAnimComponent* atomAnimCpnt = static_cast<AtomAnimComponent*>(player->FindComponentByVTBL(vtbl_AtomAnimComponent));
+        return atomAnimCpnt;
     }
 
 }

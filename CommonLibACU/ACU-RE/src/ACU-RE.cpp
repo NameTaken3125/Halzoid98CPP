@@ -35,6 +35,7 @@
 
 #include "ACU/TypeInfo.h"
 
+#include "ACU/CameraSelectorNode.h"
 #include "ACU/CameraSelectorBlenderNode.h"
 #include "ACU/CameraData.h"
 #include "ACU/CurvePoints.h"
@@ -61,12 +62,15 @@
 #include "ACU/HUDQuickSelectModule.h"
 
 #include "ACU/DataBindingComponent.h"
+#include "ACU/ButtonComponent.h"
 #include "ACU/HUDQuickSelectComponent.h"
 #include "ACU/QuickSelectButtonComponent.h"
 
 #include "ACU/UIString.h"
 #include "ACU/InventoryItemSettings.h"
+#include "ACU/InventoryItemContainer.h"
 #include "ACU/AvatarGearModifierStats.h"
+#include "ACU/AvatarGear.h"
 #include "ACU/AvatarGearManager.h"
 
 #include "ACU/WhenHighlightedNPCChanges.h"
@@ -92,6 +96,7 @@
 #include "ACU/PlayerCustomizationWorker.h"
 
 #include "ACU/AIAction.h"
+#include "ACU/PlayerProgressionCharacterCustomization.h"
 #include "ACU/PlayerProgressionManager.h"
 #include "ACU/AssassinAbilitySet.h"
 
@@ -99,6 +104,7 @@
 #include "ACU/DominoScriptExecutionContext.h"
 #include "ACU/DominoOperatorData.h"
 #include "ACU/AIActionEntityOperatorData.h"
+#include "ACU/SeamlessCinematicOutroTransitionOperatorData.h"
 #include "ACU/ActionAbilitySet.h"
 
 #include "ACU/LanterndlcComponent.h"
@@ -125,16 +131,24 @@
 #include "ACU/BuildTags.h"
 #include "ACU/BuildTable.h"
 
+#include "ACU/TagRules.h"
+#include "ACU/WorldTagRules.h"
+#include "ACU/UniverseTagRules.h"
+
 #include "ACU/MissionReplicationPack.h"
 #include "ACU/Mission.h"
 #include "ACU/MissionGroup.h"
 #include "ACU/MissionStep.h"
+#include "ACU/MissionStepGroup.h"
 #include "ACU/MissionHistory.h"
 #include "ACU/MissionSaveData.h"
 #include "ACU/MissionStepSaveData.h"
 #include "ACU/MissionRoot.h"
+#include "ACU/MissionCategory.h"
 #include "ACU/MissionContext.h"
 #include "ACU/MissionManager.h"
+#include "ACU/MissionCondition.h"
+#include "ACU/MissionConditionGroup.h"
 
 #include "ACU/LocalizationManager.h"
 #include "ACU/ExclusiveContent.h"
@@ -144,6 +158,48 @@
 #include "ACU/GearPage.h"
 #include "ACU/MenuManager.h"
 
+#include "ACU/GearUIInfo.h"
+#include "ACU/GearUIInfoContainer.h"
+
 #include "ACU/SoftBodySettings.h"
 #include "ACU/Skeleton.h"
 #include "ACU/Bone.h"
+
+#include "ACU/HasWorld.h"
+#include "ACU/HasSwapchain.h"
+
+#include "ACU/AtomNodeID.h"
+#include "ACU/AtomGraphNode.h"
+#include "ACU/AtomAnimationDataBaseNode.h"
+#include "ACU/AtomAnimationDataNode.h"
+#include "ACU/AtomAnimationRootNode.h"
+#include "ACU/AtomPlayCustomActionNode.h"
+#include "ACU/AtomWriteParamNode.h"
+
+#include "ACU/AtomDataContainerWrapper.h"
+#include "ACU/AtomCondition.h"
+#include "ACU/AtomConditionExpression.h"
+#include "ACU/AtomStateTransitionTarget.h"
+
+#include "ACU/AtomStateNode.h"
+#include "ACU/AtomNullStateNode.h"
+#include "ACU/AtomStateMachineNode.h"
+#include "ACU/AtomLayeringStateNode.h"
+#include "ACU/AtomGraphStateNode.h"
+
+#include "ACU/AtomRTCPDescriptor.h"
+#include "ACU/AtomCustomTransitionSystem.h"
+#include "ACU/AtomTransitionCellDescription.h"
+#include "ACU/AtomGraph.h"
+#include "ACU/Animation.h"
+
+#include "ACU/AtomGraphEvaluation.h"
+
+#include "ACU/BigArray.h"
+#include "ACU/ForgeManager.h"
+
+#include "ACU/TagDescriptor.h"
+#include "ACU/TagDictionnaries.h"
+
+#include "ACU/LoadInfo.h"
+#include "ACU/GameBootstrap.h"

@@ -6,9 +6,11 @@ class World;
 class Entity;
 class BhvAssassin;
 class ACUPlayerCameraComponent;
+class SkeletonComponent;
+class AtomAnimComponent;
 class CSrvPlayerHealth;
 
-struct IDXGISwapchain;
+struct IDXGISwapChain;
 
 namespace ACU {
 
@@ -17,8 +19,10 @@ Entity* GetPlayer();
 CSrvPlayerHealth* GetPlayerHealth();
 BhvAssassin* GetPlayerBhvAssassin();
 ACUPlayerCameraComponent* GetPlayerCameraComponent();
+SkeletonComponent* GetPlayerCpnt_SkeletonComponent();
+AtomAnimComponent* GetPlayerCpnt_AtomAnimComponent();
 
 uint64 GetWindowHandle();
-IDXGISwapchain* GetSwapchain();
+IDXGISwapChain* GetSwapchain();
 
-}
+} // namespace ACU

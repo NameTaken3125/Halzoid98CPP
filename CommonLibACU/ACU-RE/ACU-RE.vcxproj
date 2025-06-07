@@ -166,16 +166,63 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="inc\ACU\AllManagedObjects.h" />
+    <ClInclude Include="inc\ACU\Animation.h" />
+    <ClInclude Include="inc\ACU\AtomAnimationDataBaseNode.h" />
+    <ClInclude Include="inc\ACU\AtomAnimationDataNode.h" />
+    <ClInclude Include="inc\ACU\AtomAnimationRootNode.h" />
+    <ClInclude Include="inc\ACU\AtomCondition.h" />
+    <ClInclude Include="inc\ACU\AtomConditionExpression.h" />
+    <ClInclude Include="inc\ACU\AtomCustomTransitionSystem.h" />
+    <ClInclude Include="inc\ACU\AtomDataContainerWrapper.h" />
+    <ClInclude Include="inc\ACU\AtomGraph.h" />
+    <ClInclude Include="inc\ACU\AtomGraphEvaluation.h" />
+    <ClInclude Include="inc\ACU\AtomGraphNode.h" />
+    <ClInclude Include="inc\ACU\AtomGraphStateNode.h" />
+    <ClInclude Include="inc\ACU\AtomLayeringStateNode.h" />
+    <ClInclude Include="inc\ACU\AtomNodeID.h" />
+    <ClInclude Include="inc\ACU\AtomNullStateNode.h" />
+    <ClInclude Include="inc\ACU\AtomPlayCustomActionNode.h" />
+    <ClInclude Include="inc\ACU\AtomRTCPDescriptor.h" />
+    <ClInclude Include="inc\ACU\AtomStateMachineNode.h" />
+    <ClInclude Include="inc\ACU\AtomStateNode.h" />
+    <ClInclude Include="inc\ACU\AtomStateTransitionTarget.h" />
+    <ClInclude Include="inc\ACU\AtomTransitionCellDescription.h" />
+    <ClInclude Include="inc\ACU\AtomWriteParamNode.h" />
+    <ClInclude Include="inc\ACU\AvatarGear.h" />
+    <ClInclude Include="inc\ACU\AvatarLoadout.h" />
+    <ClInclude Include="inc\ACU\BigArray.h" />
     <ClInclude Include="inc\ACU\Bone.h" />
+    <ClInclude Include="inc\ACU\ButtonComponent.h" />
+    <ClInclude Include="inc\ACU\CameraSelectorNode.h" />
     <ClInclude Include="inc\ACU\Event.h" />
+    <ClInclude Include="inc\ACU\ForgeManager.h" />
+    <ClInclude Include="inc\ACU\GameBootstrap.h" />
     <ClInclude Include="inc\ACU\GearPage.h" />
+    <ClInclude Include="inc\ACU\GearUIInfo.h" />
+    <ClInclude Include="inc\ACU\GearUIInfoContainer.h" />
+    <ClInclude Include="inc\ACU\HasWorld.h" />
+    <ClInclude Include="inc\ACU\InventoryItemContainer.h" />
+    <ClInclude Include="inc\ACU\Letterbox.h" />
+    <ClInclude Include="inc\ACU\LoadInfo.h" />
     <ClInclude Include="inc\ACU\Material.h" />
     <ClInclude Include="inc\ACU\MenuManager.h" />
     <ClInclude Include="inc\ACU\MenuPage.h" />
+    <ClInclude Include="inc\ACU\MissionCategory.h" />
+    <ClInclude Include="inc\ACU\MissionConditionGroup.h" />
+    <ClInclude Include="inc\ACU\MissionCondition.h" />
+    <ClInclude Include="inc\ACU\MissionStepGroup.h" />
+    <ClInclude Include="inc\ACU\PlayerProgressionCharacterCustomization.h" />
+    <ClInclude Include="inc\ACU\SeamlessCinematicOutroTransitionOperatorData.h" />
     <ClInclude Include="inc\ACU\Skeleton.h" />
     <ClInclude Include="inc\ACU\SkeletonComponent.h" />
     <ClInclude Include="inc\ACU\SoftBodySettings.h" />
     <ClInclude Include="inc\ACU\StandardPage.h" />
+    <ClInclude Include="inc\ACU\TagDescriptor.h" />
+    <ClInclude Include="inc\ACU\TagDictionnaries.h" />
+    <ClInclude Include="inc\ACU\TagRules.h" />
+    <ClInclude Include="inc\ACU\Threads\KnownThreads.h" />
+    <ClInclude Include="inc\ACU\UniverseTagRules.h" />
+    <ClInclude Include="inc\ACU\WorldTagRules.h" />
     <ClInclude Include="inc\ACU_DefineNativeFunction.h" />
     <ClInclude Include="inc\ACU\ActionAbilitySet.h" />
     <ClInclude Include="inc\ACU\ActionKeyStates.h" />
@@ -260,7 +307,6 @@
     <ClInclude Include="inc\ACU\MissionStepSaveData.h" />
     <ClInclude Include="inc\ACU\Parkour_PotentialWindowEntry.h" />
     <ClInclude Include="inc\ACU\Parkour_WhileOnWallSystem.h" />
-    <ClInclude Include="inc\ACU\AvatarLoadout.h" />
     <ClInclude Include="inc\ACU\PlayerCustomizationWorker.h" />
     <ClInclude Include="inc\ACU\PlayerProgressionManager.h" />
     <ClInclude Include="inc\ACU\QuickSelectButtonComponent.h" />
@@ -313,9 +359,11 @@
     <ClCompile Include="src\BhvAssassin.cpp" />
     <ClCompile Include="src\CLAssassin.cpp" />
     <ClCompile Include="src\Entity.cpp" />
+    <ClCompile Include="src\ForgeManager.cpp" />
     <ClCompile Include="src\Human.cpp" />
     <ClCompile Include="src\HumanStatesHolder.cpp" />
     <ClCompile Include="src\LocalizationManager.cpp" />
+    <ClCompile Include="src\MissionRoot.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -327,12 +375,16 @@
     <ClCompile Include="src\VanishingManager.cpp" />
     <ClCompile Include="src\WeaponComponent.cpp" />
     <ClCompile Include="src\World.cpp" />
+    <ClCompile Include="src\WorldTagRules.cpp" />
     <ClCompile Include="vmath\vmath\vmath.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="misc\debuggers\SmallArray.natvis" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

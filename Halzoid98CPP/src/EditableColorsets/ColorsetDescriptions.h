@@ -101,6 +101,7 @@ struct ColorsetValueDescription
     const char* Role; // "Primary color", "Secondary Color", "Velvet" etc.
     ColorsetValueType ValueType;
     uint8 IndexCorrespondingToTheBuildColumn;
+    bool DoHideBecauseNotUseful; // Colors 4, 5, 6 are just not really useful.
     void* (*MapToCStructMember)(MyColorPresetData& preset);
 };
 const std::vector<ColorsetDescription> g_ColorsetsDescriptions = {
@@ -403,12 +404,12 @@ const std::vector<ColorsetDescription> g_ColorsetsDescriptions = {
         )},
 };
 std::vector<ColorsetValueDescription> g_ColorsetValueDescriptions = {
-    ColorsetValueDescription{ "Primary color",     ColorsetValueType::Vector4,       1,   [](MyColorPresetData& preset) { return (void*)&preset.PrimaryColor; } },
-    ColorsetValueDescription{ "Secondary color",   ColorsetValueType::Vector4,       2,   [](MyColorPresetData& preset) { return (void*)&preset.SecondaryColor; } },
-    ColorsetValueDescription{ "Tertiary color",    ColorsetValueType::Vector4,       3,   [](MyColorPresetData& preset) { return (void*)&preset.TertiaryColor; } },
-    ColorsetValueDescription{ "Leather color",     ColorsetValueType::Vector4,       10,  [](MyColorPresetData& preset) { return (void*)&preset.LeatherColor; } },
-    ColorsetValueDescription{ "Velvet",            ColorsetValueType::SingleFloat,   9,   [](MyColorPresetData& preset) { return (void*)&preset.Velvet; } },
-    ColorsetValueDescription{ "Color4",            ColorsetValueType::Vector4,       4,   [](MyColorPresetData& preset) { return (void*)&preset.Color4; } },
-    ColorsetValueDescription{ "Color5",            ColorsetValueType::Vector4,       6,   [](MyColorPresetData& preset) { return (void*)&preset.Color5; } },
-    ColorsetValueDescription{ "Color6",            ColorsetValueType::Vector4,       7,   [](MyColorPresetData& preset) { return (void*)&preset.Color6; } },
+    ColorsetValueDescription{ "Primary color",     ColorsetValueType::Vector4,       1,  false, [](MyColorPresetData& preset) { return (void*)&preset.PrimaryColor; } },
+    ColorsetValueDescription{ "Secondary color",   ColorsetValueType::Vector4,       2,  false, [](MyColorPresetData& preset) { return (void*)&preset.SecondaryColor; } },
+    ColorsetValueDescription{ "Tertiary color",    ColorsetValueType::Vector4,       3,  false, [](MyColorPresetData& preset) { return (void*)&preset.TertiaryColor; } },
+    ColorsetValueDescription{ "Leather color",     ColorsetValueType::Vector4,       10, false, [](MyColorPresetData& preset) { return (void*)&preset.LeatherColor; } },
+    ColorsetValueDescription{ "Velvet",            ColorsetValueType::SingleFloat,   9,  false, [](MyColorPresetData& preset) { return (void*)&preset.Velvet; } },
+    ColorsetValueDescription{ "Color4",            ColorsetValueType::Vector4,       4,  true,  [](MyColorPresetData& preset) { return (void*)&preset.Color4; } },
+    ColorsetValueDescription{ "Color5",            ColorsetValueType::Vector4,       6,  true,  [](MyColorPresetData& preset) { return (void*)&preset.Color5; } },
+    ColorsetValueDescription{ "Color6",            ColorsetValueType::Vector4,       7,  true,  [](MyColorPresetData& preset) { return (void*)&preset.Color6; } },
 };

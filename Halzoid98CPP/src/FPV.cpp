@@ -18,7 +18,7 @@ void DoSomethingWithTheSkeletonComponent(Entity& player)
     // can perhaps be found in the player's `SkeletonComponent`, but I didn't check.
     constexpr uint64 vtbl_SkeletonComponent = 0x142E76630;
     SkeletonComponent* skeletonCpnt = static_cast<SkeletonComponent*>(player.FindComponentByVTBL(vtbl_SkeletonComponent));
-    if (skeletonCpnt)
+    if (!skeletonCpnt)
     {
         return;
     }

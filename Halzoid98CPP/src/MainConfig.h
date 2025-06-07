@@ -20,6 +20,7 @@ struct ConfigTop : YAConfigSection {
     struct YACS_Features : YAConfigSection {
         YACSTOR(YACS_Features);
         ACM(editableColorsets, bool, BooleanAdapter, true);
+        ACM(applyClothPhysicsPatch, bool, BooleanAdapter, true);
     };
     ACM(features, YACS_Features, YAConfigSectionAdapter, );
 };

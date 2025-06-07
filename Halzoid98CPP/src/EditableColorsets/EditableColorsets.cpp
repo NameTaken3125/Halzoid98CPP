@@ -60,7 +60,7 @@ const ColorsetDescription* FindCurrentColorset()
 {
     GearPage* gearPage = FindGearPageIfOpened();
     if (!gearPage) { return nullptr; }
-    uint64 handle_currentColorset = gearPage->customizationWorker.currentCustomizationItems.shared_invItemSett_Colorset->handle;
+    uint64 handle_currentColorset = gearPage->customizationWorker.currentCustomizationItems.ColorSlot->handle;
     for (const ColorsetDescription& colorsetDesc : g_ColorsetsDescriptions)
     {
         if (colorsetDesc.m_InventoryItemHandle == handle_currentColorset)
@@ -244,6 +244,8 @@ bool DrawColorsetValue(BuildRow& row, ColorsetValueDescription& valueDescription
         }
     }
     if (!valueIndexInActualArrayOfDynamicProperties) { return isChanged; }
+    const bool doHideBecauseNotUseful = valueDescription.DoHideBecauseNotUseful;
+    if (doHideBecauseNotUseful) { return isChanged; }
     void* dataForTheValue = (void*)((uint64)row.vectorValuesForColorSets + *valueIndexInActualArrayOfDynamicProperties * 0x10);
     if (valueDescription.ValueType == ColorsetValueType::SingleFloat)
     {
@@ -350,6 +352,8 @@ void WhenCheckingIfCurrentlyHighlightedAvatarGearChanged_AllowToUpdateIfColorsWe
         g_EditableColorsets_IsUpdated = false;
         AvatarGear* fakeGearSoThatTheGameThinksPlayersVisualsChangedAndNeedToBeRebuilt = (AvatarGear*)1;
         customizationWorker->previouslyHighlightedGear = fakeGearSoThatTheGameThinksPlayersVisualsChangedAndNeedToBeRebuilt;
+        customizationWorker->byte_249 = 1;
+        customizationWorker->byte_24A = 1;
     }
 }
 EditableColorsets::EditableColorsets()

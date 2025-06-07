@@ -30,36 +30,29 @@ public:
         {
             if (ImGuiCTX::Tab _mainTab{ "Colorsets" })
             {
-                if (ImGuiCTX::WindowChild _{ "ColorsetsChild" })
-                {
-                    ImGui::DrawCheckboxForHack(editableColorsets, "Editable Colorsets");
-                    DrawColorsetsControls();
-                }
+                ImGui::DrawCheckboxForHack(editableColorsets, "Editable Colorsets");
+                DrawColorsetsControls();
             }
             if (ImGuiCTX::Tab _mainTab{ "Physics Patch" })
             {
-                if (ImGuiCTX::WindowChild _{ "PhysicsChild" })
-                {
-                    DrawPhysicsPatchControls();
-                }
+                DrawPhysicsPatchControls();
             }
-            if (ImGuiCTX::Tab _mainTab{ "Camera override" })
-            {
-                if (ImGuiCTX::WindowChild _{ "CamOvrdChild" })
-                {
-                    ImGui::DrawCheckboxForHack(exampleCameraOverride, "Example camera override");
-                    if (ImGui::IsItemHovered())
-                    {
-                        ImGui::SetTooltip(
-                            "As an example, I set the camera position to 2 meters above the player's feet."
-                        );
-                    }
-                    if (exampleCameraOverride.IsActive())
-                    {
-                        DrawFPVPatchControls();
-                    }
-                }
-            }
+            //if (ImGuiCTX::Tab _mainTab{ "Camera override" })
+            //{
+            //    {
+            //        ImGui::DrawCheckboxForHack(exampleCameraOverride, "Example camera override");
+            //        if (ImGui::IsItemHovered())
+            //        {
+            //            ImGui::SetTooltip(
+            //                "As an example, I set the camera position to 2 meters above the player's feet."
+            //            );
+            //        }
+            //        if (exampleCameraOverride.IsActive())
+            //        {
+            //            DrawFPVPatchControls();
+            //        }
+            //    }
+            //}
         }
     }
     void ReadConfig(ConfigTop& cfg)

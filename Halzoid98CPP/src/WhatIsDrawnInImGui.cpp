@@ -26,10 +26,7 @@ void ImGuiLayer_WhenMenuIsOpen()
     {
         if (ImGuiCTX::Tab _mainTab{ "Main Tab" })
         {
-            if (ImGuiCTX::WindowChild _{ "MainTabChild" })
-            {
-                WhenMenuOpen_DrawFeaturesControls();
-            }
+            WhenMenuOpen_DrawFeaturesControls();
         }
         if (ImGuiCTX::Tab _extraoptions{ "Extra" })
         {

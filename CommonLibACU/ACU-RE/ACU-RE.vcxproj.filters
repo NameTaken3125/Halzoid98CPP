@@ -101,7 +101,7 @@
     <ClInclude Include="inc\ACU\MandatoryWorldComponent.h" />
     <ClInclude Include="inc\ACU\Season.h" />
     <ClInclude Include="inc\ACU\SoundState.h" />
-    <ClInclude Include="inc\ACU\PlayerCustomizationItems.h" />
+    <ClInclude Include="inc\ACU\AvatarLoadout.h" />
     <ClInclude Include="inc\ACU\PlayerCustomizationWorker.h" />
     <ClInclude Include="inc\ACU\BuildTable.h" />
     <ClInclude Include="inc\ACU\MissionManager.h" />

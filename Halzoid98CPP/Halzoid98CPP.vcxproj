@@ -199,7 +199,6 @@
     <ClInclude Include="src\MainConfig.h" />
     <ClInclude Include="src\MyLog.h" />
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Experimental_StrongPtr.h" />
     <ClInclude Include="src\PhysicsPatch\SoftbodyDescriptions.h" />
   </ItemGroup>
   <ItemGroup>

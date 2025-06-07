@@ -33,7 +33,7 @@ public:
     {
         return MAKE_VERSION_NUMBER_UINT64(0, 0, 1, 0);
     }
-    virtual bool Start(ACUPluginLoaderInterface& pluginLoader) override
+    virtual bool InitStage_WhenCodePatchesAreSafeToApply(ACUPluginLoaderInterface& pluginLoader) override
     {
         g_LogLifetime.emplace(AbsolutePathInThisDLLDirectory("Halzoid98-log.log"));
         MainConfig::FindAndLoadConfigFileOrCreateDefault(AbsolutePathInThisDLLDirectory("Halzoid98-config.json"));

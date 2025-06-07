@@ -12,8 +12,7 @@
 #include "ACU/GearPage.h"
 #include "ACU/MenuManager.h"
 
-#include "ACU_SharedPtrs.h"
-#include "Experimental_StrongPtr.h"
+#include "ACU/ManagedPtrs/ManagedPtrs.h"
 
 #include "ColorsetDescriptions.h"
 #include "ACUColorPicker.h"
@@ -21,7 +20,7 @@
 bool g_EditableColorsets_IsEnabled = false;
 bool g_EditableColorsets_IsUpdated = false;
 constexpr uint64 handle_BuildTable_colorsets = 130934825362;        // CN_P_Arno\CN_P_Avatars_ColorSets.BuildTable
-std::optional<ACUSharedPtr_Strong> g_EditableColorsets_ColorsetsBuildtable;
+std::optional<ACU::StrongRef<BuildTable>> g_EditableColorsets_ColorsetsBuildtable;
 bool g_EditableColorsets_isAlreadyUpdatedFromSavedSettings = false;
 fs::path GetColorPresetsFilepath()
 {
@@ -310,7 +309,7 @@ void DrawColorsetsControls()
     if (!g_EditableColorsets_IsEnabled) { return; }
     BuildTable* colorsetsBuildTable =
         g_EditableColorsets_ColorsetsBuildtable
-        ? g_EditableColorsets_ColorsetsBuildtable->GetPtr<BuildTable>()
+        ? g_EditableColorsets_ColorsetsBuildtable->GetPtr()
         : nullptr;
     if (colorsetsBuildTable)
     {
@@ -335,7 +334,7 @@ void EveryFrameUntilSuccess_FindAndUpdateColorsets()
     {
         g_EditableColorsets_ColorsetsBuildtable.emplace(handle_BuildTable_colorsets);
     }
-    if (BuildTable* colorsetsTable = g_EditableColorsets_ColorsetsBuildtable->GetPtr<BuildTable>())
+    if (BuildTable* colorsetsTable = g_EditableColorsets_ColorsetsBuildtable->GetPtr())
     {
         LoadPresetsFromFile(*colorsetsTable);
         g_EditableColorsets_isAlreadyUpdatedFromSavedSettings = true;

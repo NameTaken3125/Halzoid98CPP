@@ -99,7 +99,8 @@
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)vmath\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)vmath\;$(ProjectDir)src</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -154,8 +155,9 @@
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)vmath\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)vmath\;$(ProjectDir)src</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -165,7 +167,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="inc\ACU\AllManagedObjects.h" />
+    <ClInclude Include="inc\Handles\Handles.h" />
+    <ClInclude Include="inc\ACU\LoadingThread.h" />
+    <ClInclude Include="inc\ACU\ManagedPtrs\AllManagedObjects.h" />
     <ClInclude Include="inc\ACU\Animation.h" />
     <ClInclude Include="inc\ACU\AtomAnimationDataBaseNode.h" />
     <ClInclude Include="inc\ACU\AtomAnimationDataNode.h" />
@@ -204,6 +208,7 @@
     <ClInclude Include="inc\ACU\InventoryItemContainer.h" />
     <ClInclude Include="inc\ACU\Letterbox.h" />
     <ClInclude Include="inc\ACU\LoadInfo.h" />
+    <ClInclude Include="inc\ACU\ManagedPtrs\ManagedPtrs.h" />
     <ClInclude Include="inc\ACU\Material.h" />
     <ClInclude Include="inc\ACU\MenuManager.h" />
     <ClInclude Include="inc\ACU\MenuPage.h" />
@@ -216,11 +221,13 @@
     <ClInclude Include="inc\ACU\Skeleton.h" />
     <ClInclude Include="inc\ACU\SkeletonComponent.h" />
     <ClInclude Include="inc\ACU\SoftBodySettings.h" />
+    <ClInclude Include="inc\ACU\Sound\ACU_SoundUtils.h" />
     <ClInclude Include="inc\ACU\StandardPage.h" />
     <ClInclude Include="inc\ACU\TagDescriptor.h" />
     <ClInclude Include="inc\ACU\TagDictionnaries.h" />
     <ClInclude Include="inc\ACU\TagRules.h" />
     <ClInclude Include="inc\ACU\Threads\KnownThreads.h" />
+    <ClInclude Include="inc\ACU\Memory\ACUAllocs.h" />
     <ClInclude Include="inc\ACU\UniverseTagRules.h" />
     <ClInclude Include="inc\ACU\WorldTagRules.h" />
     <ClInclude Include="inc\ACU_DefineNativeFunction.h" />
@@ -340,7 +347,6 @@
     <ClInclude Include="inc\ACU\WitnessEvent.h" />
     <ClInclude Include="inc\ACU\World.h" />
     <ClInclude Include="inc\ACU\WorldComponent.h" />
-    <ClInclude Include="inc\ACU_SharedPtrs.h" />
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="vmath\vmath\vmath.h" />
@@ -348,11 +354,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ACU-RE.cpp" />
+    <ClCompile Include="src\ACUAllocs.cpp" />
     <ClCompile Include="src\ACUGetSingletons.cpp" />
     <ClCompile Include="src\ACUGlobalSoundSet.cpp" />
     <ClCompile Include="src\ACUHashmap.cpp" />
     <ClCompile Include="src\ACUPlayerCameraComponent.cpp" />
     <ClCompile Include="src\ACU_SharedPtrs.cpp" />
+    <ClCompile Include="src\ACU_SoundUtils.cpp" />
     <ClCompile Include="src\AvatarConsumablesManager.cpp" />
     <ClCompile Include="src\AvatarGearManager.cpp" />
     <ClCompile Include="src\BallisticProjectileAimingControlsSettings.cpp" />
@@ -360,6 +368,7 @@
     <ClCompile Include="src\CLAssassin.cpp" />
     <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="src\ForgeManager.cpp" />
+    <ClCompile Include="src\Handles\Handles.cpp" />
     <ClCompile Include="src\Human.cpp" />
     <ClCompile Include="src\HumanStatesHolder.cpp" />
     <ClCompile Include="src\LocalizationManager.cpp" />

@@ -12,6 +12,7 @@
 #include "ACU/BaseEntity.h"
 #include "ACU/Entity.h"
 #include "ACU/SharedPtr.h"
+#include "ACU/ManagedPtrs/ManagedPtrs.h"
 #include "ACU/Component.h"
 #include "ACU/Clock.h"
 #include "ACU/Timer.h"
@@ -203,3 +204,5 @@
 
 #include "ACU/LoadInfo.h"
 #include "ACU/GameBootstrap.h"
+
+#include "ACU/LoadingThread.h"

@@ -24,9 +24,9 @@ class WindowChild
 {
     bool m_isOpened = false;
 public:
-    WindowChild(const char* str_id, const ImVec2& size = ImVec2(0, 0), bool border = false, ImGuiWindowFlags flags = 0)
+    WindowChild(const char* str_id, const ImVec2& size = ImVec2(0, 0), ImGuiChildFlags child_flags = 0, ImGuiWindowFlags flags = 0)
     {
-        m_isOpened = ImGui::BeginChild(str_id, size, border, flags);
+        m_isOpened = ImGui::BeginChild(str_id, size, child_flags, flags);
     }
     ~WindowChild()
     {
@@ -75,6 +75,22 @@ public:
         m_opened = ImGui::TreeNode(label);
     }
     ~TreeNode()
+    {
+        if (m_opened) {
+            ImGui::TreePop();
+        }
+    }
+    operator bool() { return m_opened; }
+};
+class TreeNodeEx
+{
+    bool m_opened;
+public:
+    TreeNodeEx(const char* label, ImGuiTreeNodeFlags flags = 0)
+    {
+        m_opened = ImGui::TreeNodeEx(label, flags);
+    }
+    ~TreeNodeEx()
     {
         if (m_opened) {
             ImGui::TreePop();
@@ -181,6 +197,18 @@ public:
     ~PushID()
     {
         ImGui::PopID();
+    }
+};
+class PushStyleColor
+{
+public:
+    PushStyleColor(ImGuiCol idx, const ImVec4& col)
+    {
+        ImGui::PushStyleColor(idx, col);
+    }
+    ~PushStyleColor()
+    {
+        ImGui::PopStyleColor();
     }
 };
 }

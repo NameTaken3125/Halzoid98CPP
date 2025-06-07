@@ -4,7 +4,7 @@
 
 #include "ACU/ManagedObject.h"
 #include "ACU/SoftBodySettings.h"
-#include "Experimental_StrongPtr.h"
+#include "ACU/ManagedPtrs/ManagedPtrs.h"
 #include "vmath/vmath.h"
 #include "ImGuiCTX.h"
 #include "MainConfig.h"
@@ -15,7 +15,7 @@
 struct TrackedSoftbody
 {
     const SoftbodyDescription& m_Desc;
-    std::optional<ACUSharedPtr_Strong> m_Reference;
+    std::optional<ACU::StrongRef<SoftBodySettings>> m_Reference;
     bool m_IsAlreadyPatched = false;
 
     TrackedSoftbody(const SoftbodyDescription& desc) : m_Desc(desc) {}
@@ -61,7 +61,7 @@ void EveryFrameUntilSuccess_FindAndPatchSoftBodyData()
         {
             softbody.m_Reference.emplace(softbody.m_Desc.m_Handle);
         }
-        SoftBodySettings* sbs = softbody.m_Reference->GetPtr<SoftBodySettings>();
+        SoftBodySettings* sbs = softbody.m_Reference->GetPtr();
         if (!sbs)
         {
             isEverythingPatchedThisTime = false;
@@ -86,7 +86,7 @@ void DrawControlsForSoftbody(TrackedSoftbody& softbody)
     {
         softbody.m_Reference.emplace(softbody.m_Desc.m_Handle);
     }
-    SoftBodySettings* sbs = softbody.m_Reference->GetPtr<SoftBodySettings>();
+    SoftBodySettings* sbs = softbody.m_Reference->GetPtr();
     if (!sbs)
     {
         ImGui::Text("This SoftBodySettings object isn't loaded yet. Try equipping something that uses it.");

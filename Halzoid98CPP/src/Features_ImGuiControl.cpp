@@ -21,12 +21,6 @@ public:
 
     void DrawControls()
     {
-        if (ImGui::Button("Save config file"))
-        {
-            WriteConfig(g_Config);
-            MainConfig::WriteToFile();
-        }
-        if (ImGuiCTX::TabBar _tabbar{ "FeaturesBar" })
         {
             if (ImGuiCTX::Tab _mainTab{ "Colorsets" })
             {
@@ -81,4 +75,12 @@ void StartVariousFeatures()
     g_MyHacks->ReadConfig(g_Config);
     g_MyHacks->WriteConfig(g_Config);
     MainConfig::WriteToFile();
+}
+void SaveFeaturesStateToConfig()
+{
+
+    if (g_MyHacks)
+    {
+        g_MyHacks->WriteConfig(g_Config);
+    }
 }

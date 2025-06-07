@@ -22,12 +22,15 @@ void RequestUnloadThisPlugin();
 #include "MainConfig.h"
 void ImGuiLayer_WhenMenuIsOpen()
 {
+    if (ImGui::Button("Save config file"))
+    {
+        void SaveFeaturesStateToConfig(); SaveFeaturesStateToConfig();
+        MainConfig::WriteToFile();
+    }
+    ImGui::Separator();
     if (ImGuiCTX::TabBar _tabbar{ "MainWindowTabs" })
     {
-        if (ImGuiCTX::Tab _mainTab{ "Main Tab" })
-        {
-            WhenMenuOpen_DrawFeaturesControls();
-        }
+        WhenMenuOpen_DrawFeaturesControls();
         if (ImGuiCTX::Tab _extraoptions{ "Extra" })
         {
             DrawModMenuControls();

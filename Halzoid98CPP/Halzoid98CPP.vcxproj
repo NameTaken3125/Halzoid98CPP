@@ -173,6 +173,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\EditableColorsets\ACUColorPicker.cpp" />
     <ClCompile Include="src\EditableColorsets\EditableColorsets.cpp" />
     <ClCompile Include="src\Features_ImGuiControl.cpp" />
     <ClCompile Include="src\FPV.cpp" />

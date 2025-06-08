@@ -115,6 +115,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>THIS_DLL_PROJECT_TARGET_FILE_NAME="$(TargetFileName)";THIS_DLL_PROJECT_NAME="$(ProjectName)";%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,6 +162,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>THIS_DLL_PROJECT_TARGET_FILE_NAME="$(TargetFileName)";THIS_DLL_PROJECT_NAME="$(ProjectName)";%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -177,10 +179,10 @@
     <ClCompile Include="src\EditableColorsets\EditableColorsets.cpp" />
     <ClCompile Include="src\Features_ImGuiControl.cpp" />
     <ClCompile Include="src\FPV.cpp" />
+    <ClCompile Include="src\MyLog.cpp" />
     <ClCompile Include="src\PhysicsPatch\Hack_60fpsPhysicsPatch.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MainConfig.cpp" />
-    <ClCompile Include="src\MyLog.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -194,10 +196,10 @@
     <ClInclude Include="src\EditableColorsets\ColorsetDescriptions.h" />
     <ClInclude Include="src\EditableColorsets\EditableColorsets.h" />
     <ClInclude Include="src\FPV.h" />
+    <ClInclude Include="src\MyLog.h" />
     <ClInclude Include="src\PhysicsPatch\Hack_60fpsPhysicsPatch.h" />
     <ClInclude Include="src\ImGuiConfigUtils.h" />
     <ClInclude Include="src\MainConfig.h" />
-    <ClInclude Include="src\MyLog.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\PhysicsPatch\SoftbodyDescriptions.h" />
   </ItemGroup>

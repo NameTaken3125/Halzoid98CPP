@@ -10,6 +10,9 @@ Brings the app's components together.
 
 #include "Common_Plugins/Common_PluginSide.h"
 
+#define LOG_FILENAME    THIS_DLL_PROJECT_NAME "-log.log"
+#define CONFIG_FILENAME THIS_DLL_PROJECT_NAME "-config.json"
+
 
 std::optional<MyLogFileLifetime> g_LogLifetime;
 void ImGuiLayer_WhenMenuIsOpen();
@@ -35,8 +38,8 @@ public:
     }
     virtual bool InitStage_WhenCodePatchesAreSafeToApply(ACUPluginLoaderInterface& pluginLoader) override
     {
-        g_LogLifetime.emplace(AbsolutePathInThisDLLDirectory("Halzoid98-log.log"));
-        MainConfig::FindAndLoadConfigFileOrCreateDefault(AbsolutePathInThisDLLDirectory("Halzoid98-config.json"));
+        g_LogLifetime.emplace(AbsolutePathInThisDLLDirectory(LOG_FILENAME));
+        MainConfig::FindAndLoadConfigFileOrCreateDefault(AbsolutePathInThisDLLDirectory(CONFIG_FILENAME));
         StartVariousFeatures();
         return true;
     }

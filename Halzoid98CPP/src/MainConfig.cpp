@@ -2,6 +2,11 @@
 
 #include "MyLog.h"
 
+// I'm not sure if the JSON library can properly handle file encodings,
+// especially if the config files get edited by hand.
+// But I don't want to clutter the ImGui Console, and so this only goes into the file.
+DEFINE_LOGGER_FILE(ConfigLog, DefaultLogger.m_Name + "[Config]")
+
 #include "MainConfig.h"
 #include "SimpleJSON/json.hpp"
 #include "Serialization/Serialization.h"
@@ -17,7 +22,7 @@ JSON ReadMainConfigFile()
 {
     fs::path& configFullPath = g_ConfigFilepath;
     JSON cfg = json::FromFile(configFullPath);
-    LOG_DEBUG("Read from config file \"%s\":\n%s\n", configFullPath.string().c_str(), cfg.dump().c_str());
+    LOG_DEBUG(ConfigLog, "Read from config file \"%s\":\n%s\n", configFullPath.string().c_str(), cfg.dump().c_str());
     return cfg;
 }
 void WriteToFile()
@@ -25,7 +30,7 @@ void WriteToFile()
     JSON cfg;
     g_Config.SectionToJSON(cfg);
     fs::path& configFullPath = g_ConfigFilepath;
-    LOG_DEBUG("Writing to config file \"%s\":\n%s\n", configFullPath.string().c_str(), cfg.dump().c_str());
+    LOG_DEBUG(ConfigLog, "Writing to config file \"%s\":\n%s\n", configFullPath.string().c_str(), cfg.dump().c_str());
     json::ToFile(cfg, configFullPath);
 }
 void FindAndLoadConfigFileOrCreateDefault(const fs::path& filename)
